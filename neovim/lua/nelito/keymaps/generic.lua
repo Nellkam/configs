@@ -44,3 +44,9 @@ keymap("v", ">", ">gv", opts)
 keymap("v", "<A-j>", ":m '>+1<CR>gv=gv", opts)
 keymap("v", "<A-k>", ":m '<-2<CR>gv=gv", opts)
 keymap("v", "p", '"_dP', opts)
+
+------------
+-- Macros --
+------------
+vim.cmd [[ let @1 = "cw\"\<Esc>pa\"\<Esc>" ]] -- surround word ""
+vim.cmd [[ let @2 = "cW\"\<Esc>pa\"\<Esc>" ]] -- surround WORD ""
