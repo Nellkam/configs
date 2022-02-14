@@ -1,21 +1,30 @@
 require "nelito.options"
-require "nelito.keymaps"
-require "nelito.plugins"
+require "nelito.keymaps.generic"
+require "nelito.plugins.plugins"
 
--- TREESITTER CONFIG
-require'nvim-treesitter.configs'.setup {
-  -- One of "all", "maintained" (parsers with maintainers), or a list of languages
-  ensure_installed = "maintained",
-
-  -- Install languages synchronously (only applied to `ensure_installed`)
-  sync_install = false,
-
-  highlight = {
-    enable = true,
-    additional_vim_regex_highlighting = false,
-  },
-
-  indent = {
-    enable = true,
-  }
+--------------------
+-- plugin configs --
+--------------------
+local conf = {
+  -- add files here
+  "treesitter",
+  "lspinstaller",
+  "cmp"
 }
+
+for _,v in ipairs(conf) do
+  require("nelito.plugins."..v)
+end
+
+-------------------
+-- OTHER KEYMAPS --
+-------------------
+
+local keymaps = {
+  -- add files here
+  "lsp"
+}
+
+for _,v in ipairs(keymaps) do
+  require("nelito.keymaps."..v)
+end
