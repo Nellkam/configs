@@ -1,0 +1,56 @@
+#theme = "kanagawa"
+#theme = "catppuccin_mocha"
+#theme = "bogster"
+# theme = "material_palenight"
+# theme = "rose_pine_moon"
+theme = "_MyBogster"
+
+[editor]
+line-number = "relative"
+bufferline = "multiple"
+auto-completion = false
+idle-timeout = 1500
+true-color = true
+color-modes = true
+auto-format = false
+
+[editor.cursor-shape]
+insert = "bar"
+select = "underline"
+
+[editor.lsp]
+auto-signature-help = false
+
+[editor.auto-pairs]
+'(' = ')'
+'{' = '}'
+'[' = ']'
+'"' = '"'
+"'" = "'" 
+
+[editor.indent-guides]
+render = true
+ character = "."
+# character = "○"
+# character = "•"
+# character = "⸽"
+# character = "╎" # Some characters that work well: "▏", "┆", "┊", "⸽"
+
+[keys.normal]
+"X" = "extend_line_above"
+C-j = ["extend_to_line_bounds", "delete_selection", "paste_after"]
+C-k = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
+"backspace" = { "backspace" = ":sh alacritty", r = ":sh cargo run", s = [":w", ":config-reload"], c = [":config-open"]}
+#w = "extend_next_word_start"
+a = ["move_char_right","insert_mode"]
+i = ["collapse_selection","insert_mode"]
+"tab" = "goto_first_diag"
+"minus" = "goto_next_diag"
+_ = "goto_prev_diag"
+
+A-H = "goto_previous_buffer"
+A-L = "goto_next_buffer"
+
+[keys.insert]
+C-space = "signature_help"
+A-space = "completion"
